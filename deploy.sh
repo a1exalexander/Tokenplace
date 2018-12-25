@@ -4,8 +4,6 @@
 set -e
 
 # сборка
-npm run build
-
 
 # если вы публикуете на пользовательский домен
 # echo 'www.example.com' > CNAME
