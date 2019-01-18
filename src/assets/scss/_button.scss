@@ -1,0 +1,106 @@
+%button-sort {
+	padding: 8px 14px;
+	border-radius: 5px;
+	background-color: $bg-color;
+	position: relative;
+	@include flex-row(center);
+	font-family: $base-font;
+	font-size: $size-4;
+	font-weight: 600;
+	text-transform: uppercase;
+	color: $text-hover-color;
+	transition: all ease-in-out 0.2s;
+	&:active {
+		background-color: $form-bg-color;
+	}
+}
+%button {
+	padding: 8px 32px;
+	border-radius: 5px;
+	min-height: 36px;
+	text-align: center;
+	font-family: $base-font;
+	font-size: $size-4;
+	font-weight: 600;
+	text-transform: uppercase;
+	position: relative;
+	@include flex-row(center);
+	transition: all ease-in-out 0.2s;
+}
+%button-cancel {
+	background-color: $form-bg-color;
+	color: $semidark-grey;
+	&:active {
+		background-color: $active-cancel-color;
+	}
+	&:disabled {
+		background-color: $form-bg-color;
+		color: $button-disable-color;
+	}
+}
+%button-buy {
+	background-color: $btn-color-buy;
+	color: $white;
+	&:active {
+		background-color: $active-buy-color;
+	}
+	&:disabled {
+			background-color: $form-bg-color;
+	color: $button-disable-color;
+	}
+}
+%button-sell {
+	background-color: $btn-color-sell;
+	color: $white;
+	&:active {
+		background-color: $active-sell-color;
+	}
+	&:disabled {
+		background-color: $form-bg-color;
+		color: $button-disable-color;
+	}
+}
+%link {
+	background-color: transparent;
+	color: $text-hover-color;
+	font-family: $second-font;
+	font-size: $size-3;
+	font-weight: 600;
+	transition: all ease-in-out 0.2s;
+}
+.button-loading {
+	color: transparent;
+	&:after {
+		content: '';
+		display: block;
+		position: absolute;
+		width: 16px;
+		height: 16px;
+		border: 2px solid white;
+		border-radius: 290486px;
+		border-right-color: transparent;
+		animation: button-loading 0.6s linear infinite;
+		pointer-events: none;
+	}
+}
+.sort-active-arrow {
+	fill: $text-hover-color !important;
+}
+.sort-image-active {
+	transition: transform ease-in-out 0.2s;
+	transform: rotateX(180deg);
+}
+.active-deposit-button {
+	color: $deposit-text-active-color !important;
+}
+.active-withdraw-button {
+	color: $withdraw-text-active-color !important;
+}
+@keyframes button-loading {
+	0% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(359deg);
+	}
+}

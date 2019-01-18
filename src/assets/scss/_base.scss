@@ -1,0 +1,88 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	::-webkit-scrollbar {
+		width: 4px;
+		height: 4px;
+    }
+    ::-webkit-scrollbar-thumb {
+		width: 4px;
+		border-radius: 10px;
+        background: $scroll-color;
+    }
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+}
+a, button {
+	text-decoration: none;
+	border: none;
+	outline: none;
+	box-shadow: none;
+	cursor: pointer;
+	font-family: $base-font;
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+body {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	max-width: 100%;
+	background-color: $bg-color;
+	font-family: $base-font;
+	font-size: $size-1;
+	color: $dark-grey;
+	font-weight: 500;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+h1, h2, h3, h4 {
+	margin: 0;
+}
+
+h1 {
+	font-family: $base-font;
+	font-size: $size-13;
+	color: $text-active-color;
+	font-weight: 600;
+}
+
+h2 {
+	font-family: $base-font;
+	font-size: $size-7;
+	color: $text-active-color;
+	font-weight: 600;
+}
+h3 {
+	font-family: $base-font;
+	font-size: $size-6;
+	color: $text-active-color;
+	font-weight: 600;
+}
+
+input {
+	box-shadow: none;
+	outline: none;
+	border: none;
+}
+
+// @-webkit-keyframes autofill {
+// 	to {
+// 		color: $TEXT-COLOR;
+// 		background: $BUTTON-COLOR;
+// 	}
+// }
+
+// @keyframes autofill {
+// 	to {
+// 		color: $TEXT-COLOR;
+// 		background: $BUTTON-COLOR;
+// 	}
+// }

@@ -1,0 +1,30 @@
+
+%search {
+cursor: pointer;
+min-height: 32px;
+@include flex-row(flex-start);
+flex-wrap: nowrap;
+border: 1px solid $lightest-grey;
+border-radius: 3px;
+padding: 4px 10px;
+}
+
+%search-img {
+	fill: $lightest-grey;
+	width: 20px;
+	height: 20px;
+	margin-right: 10px;
+}
+
+%search-input {
+	width: 95%;
+	min-width: 90px;
+	font-family: $second-font;
+	font-size: $size-3;
+	color: $dark-grey;
+	font-weight: 600;
+	&::placeholder {
+			color: $light-grey;
+	}
+}
+

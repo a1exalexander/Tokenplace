@@ -1,0 +1,65 @@
+%table {
+	border: none;
+	overflow-y: auto;
+	@include flex-col-def(stretch);
+}
+
+%table-head {
+	@include flex-col-def(stretch);
+	padding-right: 4px;
+	padding-bottom: 10px;
+	flex: 1 0 20px;
+}
+
+%table-body {
+	@include flex-col-def(stretch);
+	flex: 1 1 98%;
+	overflow-y: auto;
+	&::-webkit-scrollbar {
+			width: 4px;
+			height: 4px;
+	}
+	&::-webkit-scrollbar-thumb {
+			width: 4px;
+			border-radius: 10px;
+			background: $scroll-color;
+	}
+	&::-webkit-scrollbar-track {
+			background: transparent;
+	}
+}
+%table-row {
+	flex: 1 1 100%;
+	@include flex-row(space-between);
+	flex-shrink: 0;
+	padding-bottom: 12px;
+}
+
+%table-cell {
+	font-family: $second-font;
+	color: $darker-grey;
+	font-size: $size-2;
+	white-space: nowrap;
+	text-transform: uppercase;
+	font-weight: 600;
+	text-align: left;
+}
+
+%table-cell-head {
+	font-family: $base-font;
+	color: $middle-grey;
+	font-size: $size-2;
+	@include flex-row-def(baseline);
+	transition: all ease-in-out 0.2s;
+	cursor: pointer;
+	&:active  svg {
+		fill: $deposit-text-active-color;
+	}
+}
+%table-head-img {
+	margin-left: 4px;
+	fill: $lightest-grey;
+	width: 9px;
+	height: 9px;
+	transition: all ease-in-out 0.2s;
+}
