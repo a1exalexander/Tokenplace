@@ -17,5 +17,5 @@ git commit -m 'deploy'
 # если вы публикуете по адресу https://<USERNAME>.github.io
 
 # если вы публикуете по адресу https://<USERNAME>.github.io/<REPO>
-git push -f git@github.com:a1exalexander/Tokenplace.git master:gh-pages
+git push origin master:gh-pages
 
