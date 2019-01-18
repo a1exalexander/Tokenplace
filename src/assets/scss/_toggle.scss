@@ -1,0 +1,46 @@
+
+.toggle-button-active {
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.06);
+	background-color: $nav-btn-hover-color;
+	color: $text-hover-color;
+}
+
+%toggle-box {
+width: 100%;
+min-height: 2rem;
+padding: 6px 8px;
+background-color: $bg-color;
+border-radius: 4px;
+@include flex-row(space-between);
+}
+
+%toggle-button {
+	min-height: 24px;
+	padding: 4px 12px;
+	background-color: transparent;
+	border-radius: 2px;
+	font-family: $base-font;
+	font-size: $size-4;
+	color: $middle-grey;
+	font-weight: 500;
+	transition-property: background-color, box-shadow, color;
+	transition-timing-function: ease-in-out;
+	transition-duration: 0.15s;
+	white-space: nowrap;
+	@media (min-width: 600px) {
+			&:hover {
+					color: $dark-grey;
+			}
+	}
+	&:focus {
+		background-color: $nav-btn-hover-color;
+		box-shadow: 0 2px 4px 0 rgba(0,0,0,0.06);
+		color: $text-hover-color;
+	}
+	&:active {
+		background-color: $nav-btn-hover-color;
+		box-shadow: none;
+		color: $text-hover-color;
+	}
+}
+

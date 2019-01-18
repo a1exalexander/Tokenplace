@@ -1,0 +1,41 @@
+%setting-title {
+	font-size: $size-13;
+	text-transform: capitalize;
+}
+%setting-section {
+	border-bottom: 1px solid $line-color;
+	padding: 32px 0;
+}
+%setting-caption {
+	color: $darker-grey;
+	font-size: $size-4;
+	font-weight: 500;
+	margin-bottom: 24px;
+	text-transform: uppercase;
+}
+%setting-text {
+	color: $semidark-grey;
+	font-size: $size-4;
+	font-weight: 500;
+	line-height: 18px;
+}
+%setting-status {
+	background: $nav-btn-hover-color;
+	color: $text-hover-color;
+	font-size: $size-1;
+	text-transform: uppercase;
+	font-family: $second-font;
+	font-weight: 500;
+	cursor: default;
+}
+%setting-input-ico {
+	pointer-events: none;
+	width: 12px;
+	height: 12px;
+	transition: all ease-in-out 0.2s;
+	fill: $light-grey;
+}
+.active-setting-link {
+	background-color: $nav-btn-hover-color;
+	color: $text-hover-color;
+}

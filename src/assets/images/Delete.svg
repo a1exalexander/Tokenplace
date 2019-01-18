@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.1 (67048) - http://www.bohemiancoding.com/sketch -->
+    <title>Icons / Interface / Delete</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M6.85714286,18.3333333 C6.85714286,19.25 7.62857143,20 8.57142857,20 L15.4285714,20 C16.3714286,20 17.1428571,19.25 17.1428571,18.3333333 L17.1428571,8.33333333 L6.85714286,8.33333333 L6.85714286,18.3333333 L6.85714286,18.3333333 Z M18,5.83333333 L15,5.83333333 L14.1428571,5 L9.85714286,5 L9,5.83333333 L6,5.83333333 L6,7.5 L18,7.5 L18,5.83333333 L18,5.83333333 Z" id="path-1"></path>
+    </defs>
+    <g id="Icons-/-Interface-/-Delete" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Combined-Shape" fill="#0073FF" fill-rule="nonzero" xlink:href="#path-1"></use>
+    </g>
+</svg>

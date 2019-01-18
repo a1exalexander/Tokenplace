@@ -1,0 +1,69 @@
+%input {
+	@include flex-row-def(center);
+	border: 1px solid $border-input;
+	border-radius: 2px;
+	padding: 2px 12px;
+	height: 36px;
+	color: $light-grey;
+	font-size: $size-3;
+	font-weight: 600;
+	font-family: $second-font;
+	transition: 0.1s ease-in-out;
+	&:focus {
+		border: 1px solid $text-hover-color;
+	}
+	&::placeholder {
+		color: $light-grey;
+	}
+	&:disabled {
+		background-color: $bg-color;
+		border-color: $line-color;
+		color: $light-grey;
+	}
+}
+%check-default {
+	left: 2px;
+	opacity: 0;
+	position: absolute;
+	z-index: -1;
+}
+%check {
+	width: 16px;
+	height: 16px;
+	background-color: $check-color;
+	border-radius: 4px;
+	border: 1px solid $check-border-color;
+	transition: all ease-in-out 0.2s;
+	cursor: pointer;
+	@include flex-row(center);
+}
+%check-img {
+	fill: $white;
+	width: 10px;
+	height: 10px;
+	display: none;
+	pointer-events: none;
+	transition: all ease-in-out 0.2s;
+}
+%check-input-text {
+	color: $text-active-color;
+	font-size: $size-2;
+	font-weight: 600;
+	font-family: $second-font;
+}
+.input-error {
+	border-color: $text-scpecial-color;
+	
+}
+.input-accepted {
+	border-color: $btn-color-buy;
+	&:focus {
+		border-color: $btn-color-buy;
+	}
+}
+.input-disable {
+	background-color: $bg-color;
+	border-color: $line-color;
+	color: $light-grey;
+	pointer-events: none;
+}

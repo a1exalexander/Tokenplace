@@ -1,0 +1,49 @@
+%login-input-name {
+	margin-bottom: 9px;
+	color: $text-active-color;
+	font-size: $size-2;
+	font-weight: 600;
+	letter-spacing: 0.28px;
+}
+%login-link {
+	color: $text-hover-color;
+	font-size: $size-3;
+	font-weight: 600;
+	letter-spacing: 0.28px;
+}
+%login-link-img {
+	fill: $text-hover-color;
+	width: 10px;
+	height: 16px;
+	margin-right: 6px;
+	font-family: $second-font;
+}
+%login-heading {
+	text-align: center;
+	color: $semi-black;
+	font-size: $size-7;
+	font-weight: 600;
+	margin-bottom: 32px;
+}
+
+%login-card {
+	background-color: $white;
+	box-shadow: 0 4px 4px 0 rgba(20,15,28,0.10);
+	border-radius: 6px;
+	padding: 40px 64px;
+}
+
+%login-subtext {
+	color: $dark-grey;
+	font-size: $size-3;
+	font-weight: 600;
+	font-family: $second-font;
+}
+%login-description {
+	color: $text-active-color;
+	font-size: $size-2;
+	font-family: $second-font;
+	font-weight: 600;
+	margin-bottom: 32px;
+	text-align: center;
+}

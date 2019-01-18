@@ -1,0 +1,89 @@
+@mixin my-flex-row($justify, $align) {
+    display: flex;
+    flex-direction: row;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin my-flex-col($justify, $align) {
+    display: flex;
+    flex-direction: row;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin flex-row($type) {
+    display: flex;
+    flex-direction: row;
+    justify-content: $type;
+    align-items: center;
+}
+
+@mixin flex-col($type) {
+    display: flex;
+    flex-direction: column;
+    justify-content: $type;
+    align-items: center;
+}
+@mixin flex-row-def($type) {
+    display: flex;
+    flex-direction: row;
+    align-items: $type;
+}
+
+@mixin flex-col-def($type) {
+    display: flex;
+    flex-direction: column;
+    align-items: $type;
+}
+
+@mixin table-row($n) {
+    display: grid;
+    grid-template-columns: repeat($n, 1fr);
+    grid-column-gap: 12px;
+    padding-bottom: 12px;
+    justify-content: space-between;
+}
+%bg-image {
+    width: 100%;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+%blue-img {
+    pointer-events: none;
+    width: 10px;
+    height: 10px;
+    fill: $text-hover-color;
+    transition: all ease-in-out 0.2s;
+}
+%ico {
+    pointer-events: none;
+    width: 10px;
+    height: 10px;
+    transition: all ease-in-out 0.2s;
+    fill: $grey;
+}
+%box {
+    background-color: $white;
+    border-radius: 6px;
+    padding: 25px 32px;
+}
+%question {
+    width: 17px;
+    height: 17px;
+    fill: $lightest-grey;
+    cursor: pointer;
+    transition: fill ease-in-out 0.15s;
+    @media (min-width: 600px) {
+        &:hover {
+            fill: $light-grey;
+        }
+    }
+}
+
+
+
+
+
