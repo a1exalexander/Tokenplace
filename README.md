@@ -1,4 +1,8 @@
-# tokenplace.vue
+# Tokenplace
+
+This is a crypto platform site. 
+Site created using Vue.js. Additionaly used Vuex, Vue-router, Moment library and axios. Javascript wrote using ES6.
+
 
 ## Project setup
 ```
