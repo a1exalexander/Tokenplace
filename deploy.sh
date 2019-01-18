@@ -9,8 +9,7 @@ npm run build
 # переход в каталог сборки
 
 
-# если вы публикуете на пользовательский домен
-# echo 'www.example.com' > CNAME
+npm run build
 
 
 git add -A
