@@ -2,31 +2,31 @@
 <section class="trading-pairs-table__wrapper">
 	<label class="trading-pairs-table__search">
 		<icon-search class="trading-pairs-table__search-img"/>
-		<input type="text" 
-			class="trading-pairs-table__search-input" placeholder="Search..." 
+		<input type="text"
+			class="trading-pairs-table__search-input" placeholder="Search..."
 			v-model='searchChars'>
 	</label>
 	<table class="trading-pairs-table">
 		<thead class="trading-pairs-table__thead">
 			<tr class="trading-pairs-table__row">
-				<th 
+				<th
 					class="trading-pairs-table__cell trading-pairs-table__cell--pair trading-pairs-table__cell--head"
 					@click="sort('pair')">Pair
-					<icon-arrow-up 
+					<icon-arrow-up
 						class='trading-pairs-table__head-img'
 						:class='{"sort-image-active": status.pair.direction, "sort-active-arrow": status.pair.active}'/>
 				</th>
-				<th 
+				<th
 					class="trading-pairs-table__cell trading-pairs-table__cell--price trading-pairs-table__cell--head"
 					@click="sort('price')">price
-					<icon-arrow-up 
+					<icon-arrow-up
 						class='trading-pairs-table__head-img'
 						:class='{"sort-image-active": status.price.direction, "sort-active-arrow": status.price.active}'/>
 				</th>
-				<th 
+				<th
 					class="trading-pairs-table__cell trading-pairs-table__cell--hours trading-pairs-table__cell--head"
 					@click="sort('hours')">24h
-					<icon-arrow-up 
+					<icon-arrow-up
 						class='trading-pairs-table__head-img'
 						:class='{"sort-image-active": status.hours.direction, "sort-active-arrow": status.hours.active}'/>
 				</th>
@@ -46,81 +46,78 @@
 </section>
 </template>
 <script>
-import IconArrowUp from '@/components/icons/IconArrowUp.vue'
-import IconStar from '@/components/icons/IconStar.vue'
-import IconSearch from "@/components/icons/IconSearch.vue"
-import { mapState, mapActions } from 'vuex'
+import IconArrowUp from '@/components/icons/IconArrowUp.vue';
+import IconStar from '@/components/icons/IconStar.vue';
+import IconSearch from '@/components/icons/IconSearch.vue';
+import { mapState, mapActions } from 'vuex';
 
 export default {
-	name: 'TradingPairsTable',
-	components: {
-		IconArrowUp,
-		IconStar,
-		IconSearch
-	},
-	data () {
-		return {
-			status: {
-				pair: {
-					active: false,
-					direction: false
-				},
-				price: {
-					active: false,
-					direction: false
-				},
-				hours: {
-					active: false,
-					direction: false
-				}
-			},
-			searchChars: ''
-		}
-	},
-	computed: {
-		...mapState("trading", [
-			"pairs"
-		]),
-		getPairs() {
-			let chars = this.searchChars;
-			if(chars && this.validChars(chars)) {
-				let	re = new RegExp(chars, 'gi');
-				return this.pairs.filter(el => {
-					return el.pair.match(re);
-				})
-			} else {
-				return this.pairs;
-			}	
-		}
-	},
-	methods: {
-		...mapActions("trading", [
-			"toggleFavorite",
-			"sortPairs"
-		]),
-		validChars(chars) {
-			// eslint-disable-next-line
+  name: 'TradingPairsTable',
+  components: {
+    IconArrowUp,
+    IconStar,
+    IconSearch,
+  },
+  data() {
+    return {
+      status: {
+        pair: {
+          active: false,
+          direction: false,
+        },
+        price: {
+          active: false,
+          direction: false,
+        },
+        hours: {
+          active: false,
+          direction: false,
+        },
+      },
+      searchChars: '',
+    };
+  },
+  computed: {
+    ...mapState('trading', [
+      'pairs',
+    ]),
+    getPairs() {
+      const chars = this.searchChars;
+      if (chars && this.validChars(chars)) {
+        const	re = new RegExp(chars, 'gi');
+        return this.pairs.filter(el => el.pair.match(re));
+      }
+      return this.pairs;
+    },
+  },
+  methods: {
+    ...mapActions('trading', [
+      'toggleFavorite',
+      'sortPairs',
+    ]),
+    validChars(chars) {
+      // eslint-disable-next-line
 			let re = /^(\w|\d)+$/;
-			return re.test(chars);
-		},
-		sort(type) {
-			this.cleanStatus(type);
-			this.status[type].active = true;
-			this.status[type].direction = !this.status[type].direction;
-			this.sortPairs(type);
-		},
-		cleanStatus(type) {
-			let object = this.status;
-			for (const key in object) {
-				if(key !== type) {
-					for (const item in object[key]) {
-						object[key][item] = false;
-					}
-				}
-			}
-		}
-	}
-}
+      return re.test(chars);
+    },
+    sort(type) {
+      this.cleanStatus(type);
+      this.status[type].active = true;
+      this.status[type].direction = !this.status[type].direction;
+      this.sortPairs(type);
+    },
+    cleanStatus(type) {
+      const object = this.status;
+      for (const key in object) {
+        if (key !== type) {
+          for (const item in object[key]) {
+            object[key][item] = false;
+          }
+        }
+      }
+    },
+  },
+};
 </script>
 <style lang="scss">
 

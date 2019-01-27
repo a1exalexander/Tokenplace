@@ -1,9 +1,9 @@
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" 
-    :width="width" 
-    :height="height" 
-    viewBox="0 0 400 400" 
-    :aria-labelledby="name" 
+  <svg xmlns="http://www.w3.org/2000/svg"
+    :width="width"
+    :height="height"
+    viewBox="0 0 400 400"
+    :aria-labelledby="name"
     role="presentation"
   >
     <title :id="name" lang="en">{{name}} icon</title>
@@ -16,26 +16,26 @@
 <script>
 
 export default {
-	name: "IconBase",
+  name: 'IconBase',
   props: {
     name: {
       type: String,
-      default: 'box'
+      default: 'box',
     },
     width: {
       type: [Number, String],
-      default: 18
+      default: 18,
     },
     height: {
       type: [Number, String],
-      default: 18
+      default: 18,
     },
     fill: {
       type: String,
-      default: 'currentColor'
-    }
-  }
-}
+      default: 'currentColor',
+    },
+  },
+};
 </script>
 
 <style scoped>

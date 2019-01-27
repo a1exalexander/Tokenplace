@@ -1,39 +1,36 @@
 <template>
-<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	viewBox="0 0 199.404 199.404" style="enable-background:new 0 0 199.404 199.404;"
-	xml:space="preserve">
-<g>
-	<polygon points="135.412,0 35.709,99.702 135.412,199.404 163.695,171.119 92.277,99.702 163.695,28.285 	"/>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-</svg>
+<!-- eslint-disable -->
+  <svg
+    version="1.1"
+    id="Capa_1"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    x="0px"
+    y="0px"
+    viewBox="0 0 199.404 199.404"
+    style="enable-background:new 0 0 199.404 199.404;"
+    xml:space="preserve"
+  >
+    <g>
+      <polygon
+        points="135.412,0 35.709,99.702 135.412,199.404 163.695,171.119 92.277,99.702 163.695,28.285 	"
+      ></polygon>
+    </g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+  </svg>
 </template>
+<!-- eslint-disable -->
