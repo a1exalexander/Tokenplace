@@ -1,3 +1,5 @@
+/* eslint-disable */
+// Becouse 'no-shadow' and 'no-param-reassing' errors of state aren't errors
 import moment from 'moment-timezone';
 import Sort from './utilits/sort';
 
@@ -17,10 +19,10 @@ const state = {
 
 const mutations = {
   cleanAll(state) {
-    for (const item in state) {
-      const type = {}.toString.call(state[item]).slice(8, -1);
-      if (type == 'Array') state[item] = [];
-    }
+    Object.entries(state).forEach((item) => {
+      const type = {}.toString.call(item[1]).slice(8, -1);
+      if (type === 'Array') state[item[0]] = [];
+    })
   },
   pushData(state, [name, data]) {
     state[name].push(data);
@@ -59,6 +61,7 @@ const mutations = {
   },
 };
 
+// TODO: All of for..in iterations must be replaced by Http request
 const actions = {
   sortOpenOrders({ commit }, type) {
     commit('sort', ['openOrders', type]);
@@ -89,14 +92,19 @@ const actions = {
   },
   downloadOpenOrders({ commit }) {
     for (let i = 0; i < 10; i++) {
-      commit('pushData', ['openOrders', {
-        pair: 'BTH / BTC',
-        type: '',
-        exchange: 'POLONIEX',
-        amount: `2.7${i}`,
-        price: `${i}55.4`,
-        date: moment().add(i, 'day').format('DD.MM.YYYY'),
-      }]);
+      commit('pushData', [
+        'openOrders',
+        {
+          pair: 'BTH / BTC',
+          type: '',
+          exchange: 'POLONIEX',
+          amount: `2.7${i}`,
+          price: `${i}55.4`,
+          date: moment()
+            .add(i, 'day')
+            .format('DD.MM.YYYY'),
+        },
+      ]);
     }
   },
   downloadBalance({ commit }) {
@@ -111,15 +119,20 @@ const actions = {
   },
   downloadPositions({ commit }) {
     for (let i = 0; i < 10; i++) {
-      commit('pushData', ['positions', {
-        pair: 'BTH / BTC',
-        type: '',
-        exchange: 'POLONIEX',
-        amount: `2.7${i}`,
-        price: `${i}55.4`,
-        date: moment().add(i, 'day').format('DD.MM.YYYY'),
-        profit: '',
-      }]);
+      commit('pushData', [
+        'positions',
+        {
+          pair: 'BTH / BTC',
+          type: '',
+          exchange: 'POLONIEX',
+          amount: `2.7${i}`,
+          price: `${i}55.4`,
+          date: moment()
+            .add(i, 'day')
+            .format('DD.MM.YYYY'),
+          profit: '',
+        },
+      ]);
     }
   },
   downloadTradeHistory({ commit }) {
@@ -146,7 +159,6 @@ const actions = {
     }
   },
   downloadPairs({ commit }) {
-    // TODO: test array
     const data = [
       {
         pair: 'BTH / BTC',
@@ -183,11 +195,14 @@ const actions = {
   },
   downloadOrderBook({ commit }) {
     for (let i = 0; i < 20; i++) {
-      commit('pushData', ['orderBook', {
-        price: '4841.9',
-        amount: '2.735',
-        total: '14044.7',
-      }]);
+      commit('pushData', [
+        'orderBook',
+        {
+          price: '4841.9',
+          amount: '2.735',
+          total: '14044.7',
+        },
+      ]);
     }
   },
   downloadRecentTrades({ commit }) {
@@ -223,7 +238,7 @@ const actions = {
     dispatch('downloadOrderBook');
   },
   toggleFavorite({ state, commit }, id) {
-    const element = state.pairs.find(item => item.id == id);
+    const element = state.pairs.find(item => item.id === id);
     const elementIndex = state.pairs.indexOf(element);
     if (!element.star) {
       element.star = true;
@@ -233,17 +248,17 @@ const actions = {
       const data = element;
       data.star = false;
       commit('delPairStar', elementIndex);
-      state.favorites.forEach((element, index) => {
-        if (element.id == id) commit('deleteFavorite', index);
+      state.favorites.forEach((el, index) => {
+        if (el.id === id) commit('deleteFavorite', index);
       });
     }
   },
   deleteFavorite({ state, commit }, id) {
     state.favorites.forEach((item, index) => {
-      if (item.id == id) {
-        state.pairs.forEach((item, index) => {
-          if (item.id == id) {
-            commit('delPairStar', index);
+      if (item.id === id) {
+        state.pairs.forEach((item2, index2) => {
+          if (item2.id === id) {
+            commit('delPairStar', index2);
           }
         });
         commit('deleteFavorite', index);

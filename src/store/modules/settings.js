@@ -1,3 +1,5 @@
+/* eslint-disable */
+// Becouse 'no-shadow' and 'no-param-reassing' errors of state aren't errors
 import moment from 'moment-timezone';
 import Sort from './utilits/sort';
 
@@ -44,7 +46,7 @@ const mutations = {
   },
   setPlan(state, index) {
     state.plans = state.plans.map((item) => {
-      if (item.id == index) {
+      if (item.id === index) {
         item.status = true;
         item.expiry = moment().format('DD.MM.YYYY');
       } else {
@@ -92,9 +94,11 @@ const mutations = {
   },
 };
 const getters = {
-  defaultTimeZone: (state) => {
+  defaultTimeZone: state => {
     const zone = state.timeZone;
-    return `(GMT${moment().tz(zone).format('Z')}) ${zone}`;
+    return `(GMT${moment()
+      .tz(zone)
+      .format('Z')}) ${zone}`;
   },
 };
 
@@ -104,7 +108,9 @@ const actions = {
     for (let i = 0; i < 20; i++) {
       commit('pushReferralHistory', {
         email: `elisgudzenko${i}@gmail.com`,
-        date: moment().add(i, 'day').format('DD.MM.YYYY'),
+        date: moment()
+          .add(i, 'day')
+          .format('DD.MM.YYYY'),
       });
     }
   },
@@ -118,7 +124,8 @@ const actions = {
         about_1: 'Lorem ipsum dolor',
         about_2: 'Lorem ipsum dolor sit amet',
         about_3: 'Lorem ipsum dolor sit amet orem ipsum dolor sit amet',
-        description: 'You’ll be charged $ 49.99 every month until you cancel your subscription. Previous charges won’t be refunded when you cancel unless it’s legally required. Your payment data is encrypted and secure. All amounts shown are in USD.',
+        description:
+          'You’ll be charged $ 49.99 every month until you cancel your subscription. Previous charges won’t be refunded when you cancel unless it’s legally required. Your payment data is encrypted and secure. All amounts shown are in USD.',
         expiry: '',
         status: false,
         id: i,

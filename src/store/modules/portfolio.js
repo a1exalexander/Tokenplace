@@ -1,3 +1,5 @@
+/* eslint-disable */
+// Becouse 'no-shadow' and 'no-param-reassing' errors of state aren't errors
 import moment from 'moment-timezone';
 import Sort from './utilits/sort';
 
@@ -15,6 +17,7 @@ const mutations = {
   cleanPortfolio(state) {
     state.portfolio = [];
   },
+  // FIXME: replace by Object.entries()
   toogleWindows(state, [type, id]) {
     const object = state.portfolio;
     for (const item of object) {
@@ -35,11 +38,9 @@ const mutations = {
     state.portfolio.push(data);
   },
   setValues(state, data) {
-    for (const key in data) {
-      if (state.values.hasOwnProperty(key)) {
-        state.values[key] = data[key];
-      }
-    }
+    Object.entries(data).forEach((item) => {
+      state.values[item[0]] = item[1];
+    })
   },
   sort(state, [arr, type]) {
     if (state[arr].length) {
@@ -84,7 +85,9 @@ const actions = {
         amount: i + 1,
         exchanges: 'Binance',
         price: `34${i},${i}`,
-        day: moment().add(i, 'day').format('DD.MM.YYYY'),
+        day: moment()
+          .add(i, 'day')
+          .format('DD.MM.YYYY'),
         value: `34${i},${i}`,
         percent: `+10.${i}`,
         depositAddress: `${i}vBMSEYstWetqTFn${i}u4m4GFg7xJaNV${i}`,

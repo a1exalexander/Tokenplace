@@ -1,3 +1,5 @@
+/* eslint-disable */
+// Becouse 'no-shadow' and 'no-param-reassing' errors of state aren't errors
 import moment from 'moment-timezone';
 import Sort from './utilits/sort';
 
@@ -15,7 +17,7 @@ const mutations = {
   toggleBox(state, index) {
     const object = state.support;
     for (const item of object) {
-      if (object.indexOf(item) == index) {
+      if (object.indexOf(item) === index) {
         item.box = !item.box;
       } else {
         item.box = false;
@@ -38,10 +40,9 @@ const mutations = {
   },
 };
 
-const getters = {
+const getters = {};
 
-};
-
+// TODO: All of for..in iterations must be replaced by Http request
 const actions = {
   downloadSupport({ commit }) {
     for (let i = 0; i < 5; i++) {
@@ -54,12 +55,14 @@ const actions = {
           {
             incoming: false,
             time: moment().format('LT'),
-            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.',
+            text:
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.',
           },
           {
             incoming: true,
             time: moment().format('LT'),
-            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna?',
+            text:
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna?',
           },
         ],
         id: i,
