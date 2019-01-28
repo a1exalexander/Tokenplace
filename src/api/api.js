@@ -1,5 +1,6 @@
 // TODO: this file 'api.js' must be deleted before connection to API
 /* eslint-disable */
+
 const mocks = {
   auth: { POST: { token: 'This-is-a-mocked-token' } },
   'user/me': { GET: { name: 'Michael Jackson', ico: require('@/assets/images/ava.png') } }

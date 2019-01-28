@@ -1,5 +1,6 @@
 /* eslint-disable */
 // Becouse 'no-shadow' and 'no-param-reassing' errors of state aren't errors
+
 import moment from 'moment-timezone';
 import Sort from './utilits/sort';
 

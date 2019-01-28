@@ -1,5 +1,6 @@
 /* eslint-disable */
 // Becouse 'no-shadow' and 'no-param-reassing' errors of state aren't errors
+
 import moment from 'moment-timezone';
 import Sort from './utilits/sort';
 
@@ -17,18 +18,17 @@ const mutations = {
   cleanPortfolio(state) {
     state.portfolio = [];
   },
-  // FIXME: replace by Object.entries()
   toogleWindows(state, [type, id]) {
     const object = state.portfolio;
-    for (const item of object) {
+    Object.keys(object).forEach((item) => {
       if (object.indexOf(item) == id) {
-        item[type] = !item[type];
+        object[item][type] = !object[item][type];
       } else {
-        item[type] = false;
+        object[item][type] = false;
       }
-      if (type == 'deposit') item.withdraw = false;
-      if (type == 'withdraw') item.deposit = false;
-    }
+      if (type === 'deposit') object[item].withdraw = false;
+      if (type === 'withdraw') object[item].deposit = false;
+    })
   },
   toggleLoading(state, id) {
     const item = state.portfolio[id];
@@ -65,6 +65,7 @@ const getters = {
   someOpenWindow: state => state.portfolio.some(item => item.deposit || item.withdraw),
 };
 
+// TODO: All of for..in iterations must be replaced by Http requests
 const actions = {
   sortPortfolio({ commit }, type) {
     commit('sort', ['portfolio', type]);

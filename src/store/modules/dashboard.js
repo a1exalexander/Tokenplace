@@ -1,3 +1,6 @@
+/* eslint-disable */
+// Becouse 'no-shadow' and 'no-param-reassing' errors of state aren't errors
+
 import moment from 'moment-timezone';
 import Sort from './utilits/sort';
 
@@ -51,16 +54,19 @@ const actions = {
   },
   downloadHoldings({ commit }) {
     for (let i = 0; i < 40; i++) {
-      commit('pushData', ['holdings', {
-        coin: 'BTC',
-        amount: 13 + i,
-        price: `3 5${i},${i}`,
-        day: `-0.${i}`,
-        week: `-0.${i + 9}`,
-        month: `-${i + 0.2}`,
-        value: `2${i} 283,${i}`,
-        percent: `10.${i}`,
-      }]);
+      commit('pushData', [
+        'holdings',
+        {
+          coin: 'BTC',
+          amount: 13 + i,
+          price: `3 5${i},${i}`,
+          day: `-0.${i}`,
+          week: `-0.${i + 9}`,
+          month: `-${i + 0.2}`,
+          value: `2${i} 283,${i}`,
+          percent: `10.${i}`,
+        }
+      ]);
     }
   },
   downloadRecentTrades({ commit }) {
@@ -80,25 +86,21 @@ const actions = {
   },
   downloadWishList({ commit }) {
     for (let i = 0; i < 5; i++) {
-      commit('pushData', ['wishList', {
-        coin: 'BTC_EUR',
-        exchange: 'LIVECOIN',
-        price: `3${i}5,${i}`,
-        day: `-4.${i}`,
-        week: `-0.${i + 9}`,
-        month: `-${i + 0.2}`,
-      }]);
+      commit('pushData', [
+        'wishList',
+        {
+          coin: 'BTC_EUR',
+          exchange: 'LIVECOIN',
+          price: `3${i}5,${i}`,
+          day: `-4.${i}`,
+          week: `-0.${i + 9}`,
+          month: `-${i + 0.2}`,
+        },
+      ]);
     }
   },
   downloadWishListCoins({ commit }) {
-    const data = [
-      'ETH_EUR',
-      'BTC_EUR',
-      'SSD_HDD',
-      'KFC_UFC',
-      'PSP_LSD',
-      'VHS_SSH',
-    ];
+    const data = ['ETH_EUR', 'BTC_EUR', 'SSD_HDD', 'KFC_UFC', 'PSP_LSD', 'VHS_SSH'];
     data.forEach((element) => {
       commit('pushData', ['wishListCoins', element]);
     });

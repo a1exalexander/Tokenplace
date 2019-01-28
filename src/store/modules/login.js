@@ -1,4 +1,8 @@
-// import http from 'axios'
+// TODO: apiCall must be deleted before conection to backend
+
+/* eslint-disable */
+// Becouse 'no-shadow' and 'no-param-reassing' errors of state aren't errors
+
 import apiCall from '@/api/api';
 
 const state = {
@@ -41,14 +45,14 @@ const mutations = {
     state.token = '';
   },
   cleanMessages(state) {
-    for (const key in state.messages) {
+    Object.keys(state.messages).forEach((key) => {
       state.messages[key] = false;
-    }
+    })
   },
   changeMessage(state, name) {
-    for (const key in state.messages) {
+    Object.keys(state.messages).forEach((key) => {
       state.messages[key] = false;
-    }
+    })
     state.messages[name] = true;
   },
 };
@@ -60,38 +64,40 @@ const getters = {
   isProfileLoaded: state => !!state.profile.name,
   someMessage: (state) => {
     const object = state.messages;
-
-
     let status = false;
-    for (const key in object) {
-      if (object[key]) status = true;
-    }
+    Object.values(object).forEach((value) => {
+      if (value) status = true;
+    })
     return status;
   },
 };
 
+// TODO: All of for..in iterations and new Promis functions must be replaced by Http requests
 const actions = {
-  AUTH_REQUEST: ({ commit, dispatch }, user) => new Promise((resolve, reject) => {
-    commit('AUTH_REQUEST');
-    apiCall({ url: 'auth', data: user, method: 'POST' })
-      .then((resp) => {
-        const token = resp.token;
-        localStorage.setItem('user-token', token);
-        commit('AUTH_SUCCESS', token);
-        dispatch('USER_REQUEST');
-        resolve(resp);
-      })
-      .catch((err) => {
-        commit('AUTH_ERROR', err);
-        localStorage.removeItem('user-token');
-        reject(err);
-      });
-  }),
-  AUTH_LOGOUT: ({ commit }) => new Promise((resolve) => {
-    commit('AUTH_LOGOUT');
-    localStorage.removeItem('user-token');
-    resolve();
-  }),
+  AUTH_REQUEST: ({ commit, dispatch }, user) => {
+    new Promise((resolve, reject) => {
+      commit('AUTH_REQUEST');
+      apiCall({ url: 'auth', data: user, method: 'POST' })
+        .then(({ token }) => {
+          localStorage.setItem('user-token', token);
+          commit('AUTH_SUCCESS', token);
+          dispatch('USER_REQUEST');
+          resolve(resp);
+        })
+        .catch((err) => {
+          commit('AUTH_ERROR', err);
+          localStorage.removeItem('user-token');
+          reject(err);
+        });
+    });
+  },
+  AUTH_LOGOUT: ({ commit }) => {
+    new Promise((resolve) => {
+      commit('AUTH_LOGOUT');
+      localStorage.removeItem('user-token');
+      resolve();
+    });
+  },
   USER_REQUEST: ({ commit, dispatch }) => {
     commit('USER_REQUEST');
     apiCall({ url: 'user/me' })
